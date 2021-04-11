@@ -5,6 +5,7 @@ This loader will load bootx64_original.efi once apple_set_os is loaded and fix t
 Based on 0xbb's apple_set_os.efi
 https://github.com/0xbb/apple_set_os.efi
 
+This fork doesn't output any text and doesn't wait for you to press a key. To build you will need gnu-efi installed.
 
 ## Usage
 ```
