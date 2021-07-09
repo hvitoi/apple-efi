@@ -1,6 +1,6 @@
 ARCH	= x86_64
 
-TARGET	= bootx64.efi
+TARGET	= bootx64.efi bootx64_silent.efi
 FORMAT 	= efi-app-$(ARCH)
 OBJS	= ./lib/int_event.o ./lib/int_graphics.o ./lib/int_mem.o ./lib/int_dpath.o ./lib/int_print.o ./lib/pci_db.o bootx64.o
 
@@ -16,6 +16,9 @@ LDFLAGS	= -T /usr/lib/elf_$(ARCH)_efi.lds -Bsymbolic -shared -nostdlib -znocombr
 all: $(TARGET)
 
 bootx64.so: $(OBJS)
+	$(LD) $(LDFLAGS) -o $@ $^ $(shell $(CC) $(CFLAGS) -print-libgcc-file-name) /usr/lib/libgnuefi.a
+
+bootx64_silent.so: $(OBJS)
 	$(LD) $(LDFLAGS) -o $@ $^ $(shell $(CC) $(CFLAGS) -print-libgcc-file-name) /usr/lib/libgnuefi.a
 
 %.efi: %.so

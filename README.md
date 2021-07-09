@@ -5,7 +5,7 @@ This loader will load bootx64_original.efi once apple_set_os is loaded and fix t
 Based on 0xbb's apple_set_os.efi
 https://github.com/0xbb/apple_set_os.efi
 
-This fork doesn't output any text and doesn't wait for you to press a key. To build you will need gnu-efi installed.
+This fork has two versions. `bootx64.efi` is interactive and will let you press `z` to disable it. `bootx64_silent.efi` doesn't output any text and doesn't wait for you to press a key. To build you will need gnu-efi installed.
 
 ## Usage
 ```
@@ -15,9 +15,9 @@ This fork doesn't output any text and doesn't wait for you to press a key. To bu
 
 3. Rename /EFI/Boot/bootx64.efi to /EFI/Boot/bootx64_original.efi
 
-4. Copy bootx64.efi from this repository to /EFI/Boot
+4. Copy bootx64.efi or bootx64_silent.efi from this repository to /EFI/Boot/bootx64.efi
 
-5. If you dont have Windows installed, you need to bless the efi so the efi will run at startup.
+5. If you dont have Windows installed, you may need to bless the efi so the efi will run at startup.
 ```
 
 ## Build via docker
