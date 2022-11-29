@@ -123,7 +123,7 @@ EFI_STATUS efi_main(EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE *SystemTable)
     DevicePath = _INT_FileDevicePath(
         BS,
         LoadedImage->DeviceHandle,
-        L"\\EFI\\Boot\\bootx64_original.efi");
+        L"\\EFI\\systemd\\systemd-bootx64.efi");
 
     if (DevicePath == NULL)
     {
